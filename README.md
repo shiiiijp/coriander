@@ -1,6 +1,6 @@
 # coriander
 
-A new Flutter project.
+チュートリアル
 
 ## Getting Started
 
