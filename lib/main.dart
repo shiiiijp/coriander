@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      model.sampleText,
+                      model.sampleTextddaa,
                       style: TextStyle(
                         fontSize: 30,
                       ),
