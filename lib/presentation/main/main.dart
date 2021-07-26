@@ -1,3 +1,5 @@
+import 'package:coriander/presentation/login/login_page.dart';
+import 'package:coriander/presentation/signup/signup_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,10 +33,15 @@ class MyApp extends StatelessWidget {
             return Center(
               child: Column(
                 children: [
-                  Text(
-                    model.sampleText,
-                    style: TextStyle(
-                      fontSize: 30,
+                  Container(
+                    height: 100,
+                    child: Center(
+                      child: Text(
+                        model.sampleText,
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
+                      ),
                     ),
                   ),
                   ElevatedButton(
@@ -45,7 +52,30 @@ class MyApp extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => BookListPage()),
                       );
                     },
-                    child: Text('本リスト'),
+                    child: Text('本一覧'),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(88, 36),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      //TODO
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUpPage()),
+                      );
+                    },
+                    child: Text('新規登録'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      //TODO
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    },
+                    child: Text('ログイン'),
                   ),
                 ],
               ),
