@@ -30,6 +30,7 @@ class BookListPage extends StatelessWidget {
                     final listTiles = books
                         .map(
                           (book) => ListTile(
+                            leading: Image.network(book.imageURL!),
                             title: Text(book.title!),
                             trailing: IconButton(
                               onPressed: () async {
@@ -48,7 +49,7 @@ class BookListPage extends StatelessWidget {
                               icon: Icon(Icons.edit),
                             ),
                             onLongPress: () async {
-                              // todo: 削除
+                              // 削除
                               await showDialog<void>(
                                 context: context,
                                 builder: (BuildContext context) {
@@ -88,7 +89,6 @@ class BookListPage extends StatelessWidget {
             Consumer<BookListModel>(builder: (context, model, child) {
           return FloatingActionButton(
             onPressed: () async {
-              //todo
               await Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -112,27 +112,5 @@ class BookListPage extends StatelessWidget {
   ) async {
     await model.deleteBook(book);
     await model.fetchBooks();
-  }
-
-  Future _showDialog(
-    BuildContext context,
-    String title,
-  ) async {
-    await showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(title),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
   }
 }
