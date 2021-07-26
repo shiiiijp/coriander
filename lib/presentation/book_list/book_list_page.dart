@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coriander/presentation/add_book/add_book_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +24,23 @@ class BookListPage extends StatelessWidget {
               .toList();
           return ListView(
             children: listTiles,
+          );
+        }),
+        floatingActionButton:
+            Consumer<BookListModel>(builder: (context, model, child) {
+          return FloatingActionButton(
+            onPressed: () async {
+              //todo
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddBookPage(),
+                  fullscreenDialog: true,
+                ),
+              );
+              model.fetchBooks();
+            },
+            child: Icon(Icons.add),
           );
         }),
       ),
